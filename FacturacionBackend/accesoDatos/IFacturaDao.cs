@@ -24,6 +24,18 @@ namespace FacturacionBackend.accesoDatos
         bool EditarArticulo(Articulo oArticulo);
         bool EliminarArticulo(int idArticulo);
 
+        DataTable ConsultarFacturas();
+        DataTable MostrarDetallesFactura(int nroFactura);
+        DataTable RecuperarFactura(int intValue);
+        DataTable FiltrosFactura(int nCase, string cboFilText);
+        DataTable FiltroFecha(DateTime fecha);
+        DataTable FiltroFechas(DateTime fecha1, DateTime fecha2);
+        DataTable BorrarFactura(int intValue);
+        DataTable BorrarDetalleFactura(int intValue);
+        bool EditarFactura(Factura oFactura);
+        bool InsertarDetalle(Factura oFactura, DetallesFactura item);
+        List<Articulo> CargarComboArticulos(DataTable dTable);
+        List<FormaPago> CargarComboFormasPago(DataTable dTable);
 
 
         bool GuardarCliente(Cliente oCliente);

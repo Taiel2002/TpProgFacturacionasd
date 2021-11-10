@@ -54,7 +54,7 @@ namespace Forms.Formularios
             string contraseña = txtPassword.Text.Trim();//txtContraseña.Text.Trim();
             string usuario = txtUsuario.Text;
             SqlConnection connection = new SqlConnection();
-            connection.ConnectionString = @"Data Source = VINCENT\SQLEXPRESS; Initial Catalog = TpProgFacturacion; Integrated Security = True";
+            connection.ConnectionString = @"Data Source=DESKTOP\SQLEXPRESS;Initial Catalog=TpProgFacturacion;Integrated Security=True";
             connection.Open();
 
             SqlCommand cmd = new SqlCommand("pa_Login",connection);

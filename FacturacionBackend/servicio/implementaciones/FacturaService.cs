@@ -56,8 +56,6 @@ namespace FacturacionBackend.servicio.implementaciones
            return Dao.EliminarArticulo(idArticulo);
         }
 
-
-
         public bool GuardarCliente(Cliente oCliente)
         {
             return Dao.GuardarCliente(oCliente);
@@ -76,12 +74,53 @@ namespace FacturacionBackend.servicio.implementaciones
 
         }
 
-
-        //public DataTable LoginIngreso(string Usuario , string Pass)
-        //{
-        //    return Dao.LoginIngreso(Usuario, Pass);
-        //}
-
-
+        public DataTable ConsultarFacturas()
+        {
+            return Dao.ConsultarFacturas();
+        }
+        public DataTable MostrarDetallesFactura(int nroFactura)
+        {
+            return Dao.MostrarDetallesFactura(nroFactura);
+        }
+        public DataTable FiltrosFactura(int nCase, string cboFilText)
+        {
+            return Dao.FiltrosFactura(nCase, cboFilText);
+        }
+        public DataTable FiltroFecha(DateTime fecha)
+        {
+            return Dao.FiltroFecha(fecha);
+        }
+        public DataTable FiltroFechas(DateTime fecha1, DateTime fecha2)
+        {
+            return Dao.FiltroFechas(fecha1, fecha2);
+        }
+        public DataTable RecuperarFactura(int intValue)
+        {
+            return Dao.RecuperarFactura(intValue);
+        }
+        public DataTable BorrarFactura(int intValue)
+        {
+            return Dao.BorrarFactura(intValue);
+        }
+        public DataTable BorrarDetalleFactura(int intValue)
+        {
+            return Dao.BorrarDetalleFactura(intValue);
+        }
+        public bool EditarFactura(Factura oFactura)
+        {
+            return Dao.EditarFactura(oFactura);
+        }
+        public bool InsertarDetalle(Factura oFactura, DetallesFactura item)
+        {
+            return Dao.InsertarDetalle(oFactura, item);
+        }
+        public List<Articulo> CargarComboArticulos(DataTable dTable)
+        {
+            return Dao.CargarComboArticulos(dTable);
+        }
+        List<FormaPago> CargarComboFormasPago(DataTable dTable)
+        {
+            return Dao.CargarComboFormasPago(dTable);
+        }
     }
 }

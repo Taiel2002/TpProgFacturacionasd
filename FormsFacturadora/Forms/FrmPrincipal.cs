@@ -34,5 +34,16 @@ namespace Forms.Formularios
             FrmArticulos nuevo = new FrmArticulos();
             nuevo.Show();
         }
+
+        private void consultarFacturaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmFacturas nuevo = new FrmFacturas();
+            nuevo.Show();
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
     }
 }

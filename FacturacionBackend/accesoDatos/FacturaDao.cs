@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace FacturacionBackend.accesoDatos
 {
-    class FacturaDao : IFacturaDao
+    public class FacturaDao : IFacturaDao
     {
         public int IdProximaFactura()
         {
-            SqlConnection conexion = new SqlConnection(@"Data Source = VINCENT\SQLEXPRESS; Initial Catalog = TpProgFacturacion; Integrated Security = True");
+            SqlConnection conexion = new SqlConnection(@"Data Source=DESKTOP\SQLEXPRESS;Initial Catalog=TpProgFacturacion;Integrated Security=True");
             conexion.Open();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conexion;
@@ -335,27 +335,233 @@ namespace FacturacionBackend.accesoDatos
             return retorno;
         }
 
+        public DataTable ConsultarFacturas()
+        {
+            HelperDao helper = HelperDao.InstanciaHelperDao();
+            return helper.SqlConsulta("pa_ConsultarFactura");
+        }
 
+        public DataTable MostrarDetallesFactura(int intValue)
+        {
+            return sqlConsParInt("pa_MostrarDetallesDeFactura", "@nroFactura", intValue);
+        }
 
-        //public DataTable LoginIngreso(string Usuario, string Pass)
-        //{
-        //    SqlConnection connection = new SqlConnection();
-        //    connection.ConnectionString = @"Data Source = VINCENT\SQLEXPRESS; Initial Catalog = TpProgFacturacion; Integrated Security = True";
-        //    connection.Open();
+        public DataTable RecuperarFactura(int intValue)
+        {
+            return sqlConsParInt("pa_RecuperarFactura", "@nroFactura", intValue);
+        }
 
-        //    SqlCommand cmd = new SqlCommand(/*"SP_PROXIMO_ID_CARRERA",connection*/);
-        //    cmd.Connection = connection;
-        //    cmd.CommandType = CommandType.StoredProcedure;
-        //    cmd.CommandText = "pa_Login";
+        public DataTable FiltrosFactura(int nCase, string cboFilText)
+        {
+            HelperDao helper = HelperDao.InstanciaHelperDao();
+            switch (nCase)
+            {
+                case 0:
+                    return helper.SqlConsulta("pa_ConsultarFactura");
+                case 1:
+                    return sqlConsPar("pa_FiltrarPorCliente", "@cliente", cboFilText);
+                case 2:
+                    return sqlConsPar("pa_FiltrarPorFormaDePago", "formaPago", cboFilText);
+            }
+            return helper.SqlConsulta("pa_ConsultarFactura");
+        }
 
-        //    cmd.Parameters.AddWithValue("@usuario",Usuario);
-        //    cmd.Parameters.AddWithValue("@password",Pass);
-        //    DataTable tabla = new DataTable();
-        //    tabla.Load(cmd.ExecuteReader());
-        //    connection.Close();
+        public DataTable FiltroFecha(DateTime fecha)
+        {
+            try
+            {
+                SqlConnection conexion = new SqlConnection(@"Data Source=DESKTOP\SQLEXPRESS;Initial Catalog=TpProgFacturacion;Integrated Security=True");
+                DataTable table = new DataTable();
+                SqlCommand cmd = new SqlCommand();
 
-        //    return tabla;
+                conexion.Open();
 
-        //}
+                cmd.Connection = conexion;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "pa_FiltrarPorFecha";
+                cmd.Parameters.AddWithValue("@fecha", fecha.ToString());
+
+                table.Load(cmd.ExecuteReader());
+                conexion.Close();
+
+                return table;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+
+        }
+        public DataTable FiltroFechas(DateTime fecha1, DateTime fecha2)
+        {
+            SqlConnection conexion = new SqlConnection(@"Data Source=DESKTOP\SQLEXPRESS;Initial Catalog=TpProgFacturacion;Integrated Security=True");
+            DataTable table = new DataTable();
+            SqlCommand cmd = new SqlCommand();
+
+            conexion.Open();
+
+            SqlCommand comando = new SqlCommand();
+            comando.Connection = conexion;
+            comando.CommandType = CommandType.Text;
+            comando.CommandText = "set dateformat dmy";
+            comando.ExecuteNonQuery();
+
+            cmd.Connection = conexion;
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "pa_FiltrarPorFechas";
+            cmd.Parameters.AddWithValue("@fecha1", fecha1);
+            cmd.Parameters.AddWithValue("@fecha2", fecha2);
+
+            table.Load(cmd.ExecuteReader());
+            conexion.Close();
+
+            return table;
+        }
+
+        public DataTable BorrarFactura(int intValue)
+        {
+            return sqlConsParInt("pa_BorrarFactura", "@nroFactura", intValue);
+        }
+
+        public DataTable BorrarDetalleFactura(int intValue)
+        {
+            return sqlConsParInt("pa_BorrarDetalleFactura", "@nroDetalle", intValue);
+        }
+
+        public bool EditarFactura(Factura oFactura)
+        {
+            SqlTransaction transaction = null;
+            SqlConnection conexion = new SqlConnection(@"Data Source=DESKTOP\SQLEXPRESS;Initial Catalog=TpProgFacturacion;Integrated Security=True");
+
+            bool flag = true;
+
+            try
+            {
+                conexion.Open();
+                transaction = conexion.BeginTransaction();
+
+                SqlCommand cmd = new SqlCommand("pa_EditarFactura", conexion, transaction);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@nroFactura", oFactura.IdFactura);
+                cmd.Parameters.AddWithValue("@formaPago", oFactura.FormaPago.IdFormasPago);
+                cmd.Parameters.AddWithValue("@cliente", oFactura.Cliente.IdCliente);
+                cmd.ExecuteNonQuery();
+                transaction.Commit();
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                flag = false;
+            }
+            finally
+            {
+                if (conexion != null && conexion.State == ConnectionState.Open)
+                    conexion.Close();
+            }
+            return flag;
+        }
+
+        public bool InsertarDetalle(Factura oFactura, DetallesFactura item)
+        {
+            SqlTransaction transaction = null;
+            SqlConnection conexion = new SqlConnection(@"Data Source=DESKTOP\SQLEXPRESS;Initial Catalog=TpProgFacturacion;Integrated Security=True");
+
+            bool flag = true;
+
+            try
+            {
+                conexion.Open();
+                transaction = conexion.BeginTransaction();
+
+                SqlCommand cmdMaestro = new SqlCommand("pa_InsertarDetalle", conexion, transaction);
+                cmdMaestro.CommandType = CommandType.StoredProcedure;
+                cmdMaestro.Parameters.AddWithValue("@nroFactura", oFactura.IdFactura);
+                cmdMaestro.Parameters.AddWithValue("@idArticulo", item.Articulo.IdArticulo);
+                cmdMaestro.Parameters.AddWithValue("@cantidad", item.Cantidad);
+                cmdMaestro.ExecuteNonQuery();
+
+                transaction.Commit();
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                flag = false;
+            }
+            finally
+            {
+                if (conexion != null && conexion.State == ConnectionState.Open)
+                    conexion.Close();
+            }
+            return flag;
+        }
+
+        public DataTable sqlConsParInt(string sqlQuery, string param, int intValue)
+        {
+            SqlConnection conexion = new SqlConnection(@"Data Source=DESKTOP\SQLEXPRESS;Initial Catalog=TpProgFacturacion;Integrated Security=True");
+            DataTable table = new DataTable();
+            SqlCommand cmd = new SqlCommand();
+
+            conexion.Open();
+            cmd.Connection = conexion;
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = sqlQuery;
+            cmd.Parameters.AddWithValue(param, intValue);
+
+            table.Load(cmd.ExecuteReader());
+            conexion.Close();
+
+            return table;
+        }
+
+        public DataTable sqlConsPar(string sqlQuery, string param, string cboFilText)
+        {
+            SqlConnection conexion = new SqlConnection(@"Data Source=DESKTOP\SQLEXPRESS;Initial Catalog=TpProgFacturacion;Integrated Security=True");
+            DataTable table = new DataTable();
+            SqlCommand cmd = new SqlCommand();
+
+            conexion.Open();
+            cmd.Connection = conexion;
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = sqlQuery;
+            cmd.Parameters.AddWithValue(param, cboFilText);
+
+            table.Load(cmd.ExecuteReader());
+            conexion.Close();
+
+            return table;
+        }
+        public List<FormaPago> CargarComboFormasPago(DataTable dTable)
+        {
+            List<FormaPago> lst = new List<FormaPago>();
+            DataTable table = dTable;
+
+            foreach (DataRow row in table.Rows)
+            {
+                FormaPago oForma = new FormaPago();
+                oForma.IdFormasPago = Convert.ToInt32(row["id_forma_pago"]);
+                oForma.NombreFormaPago = row["descripcion"].ToString();
+                lst.Add(oForma);
+            }
+
+            return lst;
+        }
+
+        public List<Articulo> CargarComboArticulos(DataTable dTable)
+        {
+            List<Articulo> lst = new List<Articulo>();
+            DataTable table = dTable;
+            foreach (DataRow row in table.Rows)
+            {
+                Articulo oArticulo = new Articulo();
+                oArticulo.IdArticulo = Convert.ToInt32(row["id_articulo"].ToString());
+                oArticulo.NombreArticulo = row["descripcion"].ToString();
+                oArticulo.PrecioUnitario = Convert.ToDouble(row["pre_unitario"].ToString());
+                oArticulo.Stock = Convert.ToInt32(row["stock"].ToString());
+                oArticulo.Costo = Convert.ToDouble(row["pre_costo"].ToString());
+                lst.Add(oArticulo);
+            }
+            return lst;
+        }
     }
 }
