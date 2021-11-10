@@ -52,10 +52,10 @@ namespace Forms.Formularios
             // lblFiltrarPor
             // 
             this.lblFiltrarPor.AutoSize = true;
-            this.lblFiltrarPor.Location = new System.Drawing.Point(14, 18);
-            this.lblFiltrarPor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFiltrarPor.Location = new System.Drawing.Point(20, 30);
+            this.lblFiltrarPor.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblFiltrarPor.Name = "lblFiltrarPor";
-            this.lblFiltrarPor.Size = new System.Drawing.Size(61, 15);
+            this.lblFiltrarPor.Size = new System.Drawing.Size(93, 25);
             this.lblFiltrarPor.TabIndex = 13;
             this.lblFiltrarPor.Text = "Filtrar por:";
             // 
@@ -68,20 +68,20 @@ namespace Forms.Formularios
             "Clientes",
             "Tipo de pago",
             "Fecha"});
-            this.cboFiltrarPor.Location = new System.Drawing.Point(83, 13);
-            this.cboFiltrarPor.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.cboFiltrarPor.Location = new System.Drawing.Point(119, 22);
+            this.cboFiltrarPor.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.cboFiltrarPor.Name = "cboFiltrarPor";
-            this.cboFiltrarPor.Size = new System.Drawing.Size(140, 23);
+            this.cboFiltrarPor.Size = new System.Drawing.Size(198, 33);
             this.cboFiltrarPor.TabIndex = 12;
             this.cboFiltrarPor.SelectedIndexChanged += new System.EventHandler(this.cboFiltrarPor_SelectedIndexChanged);
             // 
             // btnVolver
             // 
             this.btnVolver.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnVolver.Location = new System.Drawing.Point(667, 13);
-            this.btnVolver.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnVolver.Location = new System.Drawing.Point(953, 22);
+            this.btnVolver.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.btnVolver.Name = "btnVolver";
-            this.btnVolver.Size = new System.Drawing.Size(108, 27);
+            this.btnVolver.Size = new System.Drawing.Size(154, 45);
             this.btnVolver.TabIndex = 11;
             this.btnVolver.Text = "Volver a inicio";
             this.btnVolver.UseVisualStyleBackColor = true;
@@ -93,10 +93,10 @@ namespace Forms.Formularios
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.dgvFacturas);
-            this.panel1.Location = new System.Drawing.Point(14, 46);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.panel1.Location = new System.Drawing.Point(20, 77);
+            this.panel1.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(762, 410);
+            this.panel1.Size = new System.Drawing.Size(1089, 683);
             this.panel1.TabIndex = 16;
             // 
             // dgvFacturas
@@ -106,7 +106,7 @@ namespace Forms.Formularios
             this.dgvFacturas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvFacturas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvFacturas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvFacturas.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dgvFacturas.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -123,51 +123,51 @@ namespace Forms.Formularios
             this.deleteButton,
             this.seeMoreButton});
             this.dgvFacturas.Location = new System.Drawing.Point(0, 0);
-            this.dgvFacturas.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.dgvFacturas.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.dgvFacturas.Name = "dgvFacturas";
             this.dgvFacturas.ReadOnly = true;
             this.dgvFacturas.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.dgvFacturas.Size = new System.Drawing.Size(762, 410);
+            this.dgvFacturas.Size = new System.Drawing.Size(1089, 683);
             this.dgvFacturas.TabIndex = 11;
             this.dgvFacturas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFacturas_CellContentClick_1);
             // 
             // editButton
             // 
             this.editButton.HeaderText = "";
+            this.editButton.MinimumWidth = 8;
             this.editButton.Name = "editButton";
             this.editButton.ReadOnly = true;
             this.editButton.Text = "Editar";
             this.editButton.UseColumnTextForButtonValue = true;
-            this.editButton.Width = 5;
             // 
             // deleteButton
             // 
             this.deleteButton.HeaderText = "";
+            this.deleteButton.MinimumWidth = 8;
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.ReadOnly = true;
             this.deleteButton.Text = "Eliminar";
             this.deleteButton.UseColumnTextForButtonValue = true;
-            this.deleteButton.Width = 5;
             // 
             // seeMoreButton
             // 
             this.seeMoreButton.HeaderText = "";
+            this.seeMoreButton.MinimumWidth = 8;
             this.seeMoreButton.Name = "seeMoreButton";
             this.seeMoreButton.ReadOnly = true;
             this.seeMoreButton.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.seeMoreButton.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.seeMoreButton.Text = "Ver mas";
             this.seeMoreButton.UseColumnTextForButtonValue = true;
-            this.seeMoreButton.Width = 19;
             // 
             // cboFiltros
             // 
             this.cboFiltros.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboFiltros.FormattingEnabled = true;
-            this.cboFiltros.Location = new System.Drawing.Point(231, 13);
-            this.cboFiltros.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.cboFiltros.Location = new System.Drawing.Point(330, 22);
+            this.cboFiltros.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.cboFiltros.Name = "cboFiltros";
-            this.cboFiltros.Size = new System.Drawing.Size(140, 23);
+            this.cboFiltros.Size = new System.Drawing.Size(198, 33);
             this.cboFiltros.TabIndex = 14;
             this.cboFiltros.SelectedIndexChanged += new System.EventHandler(this.cboFiltros_SelectedIndexChanged);
             // 
@@ -177,19 +177,19 @@ namespace Forms.Formularios
             this.pnlFecha.Controls.Add(this.dtpHasta);
             this.pnlFecha.Controls.Add(this.lblDesde);
             this.pnlFecha.Controls.Add(this.dtpFecha);
-            this.pnlFecha.Location = new System.Drawing.Point(232, 13);
-            this.pnlFecha.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.pnlFecha.Location = new System.Drawing.Point(331, 22);
+            this.pnlFecha.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.pnlFecha.Name = "pnlFecha";
-            this.pnlFecha.Size = new System.Drawing.Size(428, 24);
+            this.pnlFecha.Size = new System.Drawing.Size(611, 40);
             this.pnlFecha.TabIndex = 17;
             // 
             // cbHasta
             // 
             this.cbHasta.AutoSize = true;
-            this.cbHasta.Location = new System.Drawing.Point(186, 3);
-            this.cbHasta.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.cbHasta.Location = new System.Drawing.Point(266, 5);
+            this.cbHasta.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.cbHasta.Name = "cbHasta";
-            this.cbHasta.Size = new System.Drawing.Size(59, 19);
+            this.cbHasta.Size = new System.Drawing.Size(87, 29);
             this.cbHasta.TabIndex = 24;
             this.cbHasta.Text = "Hasta:";
             this.cbHasta.UseVisualStyleBackColor = true;
@@ -198,46 +198,47 @@ namespace Forms.Formularios
             // dtpHasta
             // 
             this.dtpHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpHasta.Location = new System.Drawing.Point(252, 0);
-            this.dtpHasta.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.dtpHasta.Location = new System.Drawing.Point(360, 0);
+            this.dtpHasta.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.dtpHasta.Name = "dtpHasta";
-            this.dtpHasta.Size = new System.Drawing.Size(92, 23);
+            this.dtpHasta.Size = new System.Drawing.Size(130, 31);
             this.dtpHasta.TabIndex = 23;
             this.dtpHasta.ValueChanged += new System.EventHandler(this.dtpHasta_ValueChanged);
             // 
             // lblDesde
             // 
             this.lblDesde.AutoSize = true;
-            this.lblDesde.Location = new System.Drawing.Point(4, 5);
-            this.lblDesde.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDesde.Location = new System.Drawing.Point(6, 8);
+            this.lblDesde.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblDesde.Name = "lblDesde";
-            this.lblDesde.Size = new System.Drawing.Size(42, 15);
+            this.lblDesde.Size = new System.Drawing.Size(66, 25);
             this.lblDesde.TabIndex = 22;
             this.lblDesde.Text = "Desde:";
             // 
             // dtpFecha
             // 
             this.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFecha.Location = new System.Drawing.Point(55, 0);
-            this.dtpFecha.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.dtpFecha.Location = new System.Drawing.Point(79, 0);
+            this.dtpFecha.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.dtpFecha.Name = "dtpFecha";
-            this.dtpFecha.Size = new System.Drawing.Size(96, 23);
+            this.dtpFecha.Size = new System.Drawing.Size(135, 31);
             this.dtpFecha.TabIndex = 21;
             this.dtpFecha.ValueChanged += new System.EventHandler(this.dtpFecha_ValueChanged_1);
             // 
             // FrmFacturas
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(790, 470);
+            this.ClientSize = new System.Drawing.Size(1129, 783);
             this.Controls.Add(this.pnlFecha);
             this.Controls.Add(this.cboFiltros);
             this.Controls.Add(this.lblFiltrarPor);
             this.Controls.Add(this.cboFiltrarPor);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.Name = "FrmFacturas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmFacturas";
             this.Load += new System.EventHandler(this.FrmFacturas_Load);
             this.panel1.ResumeLayout(false);

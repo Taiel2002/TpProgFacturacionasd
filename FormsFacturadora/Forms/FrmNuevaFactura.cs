@@ -76,7 +76,7 @@ namespace Forms.Formularios
            // DataTable tabla = servicio.CargarClientes();
             cboCliente.DataSource = tabla;
             cboCliente.ValueMember = tabla.Columns[0].ColumnName;//"IdCliente";
-            cboCliente.DisplayMember = tabla.Columns[1].ColumnName;//"NomCliente";
+            cboCliente.DisplayMember = tabla.Columns[8].ColumnName;//"NomCliente";
             cboCliente.DropDownStyle = ComboBoxStyle.DropDownList;
 
         }
@@ -373,6 +373,11 @@ namespace Forms.Formularios
             PrinterSettings ps = new PrinterSettings();
             printDocument1.PrintPage += Imprimir;
             printDocument1.Print();
+        }
+
+        private void cboCliente_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
