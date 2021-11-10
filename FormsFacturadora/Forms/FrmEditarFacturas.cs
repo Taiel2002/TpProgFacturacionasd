@@ -87,10 +87,11 @@ namespace Forms.Formularios
             DataTable tabla = servicio.CargarClientes();
             cboCliente.DataSource = tabla;
             cboCliente.ValueMember = tabla.Columns[0].ColumnName;//"IdCliente";
-            cboCliente.DisplayMember = tabla.Columns[1].ColumnName;//"NomCliente";
+            cboCliente.DisplayMember = tabla.Columns[8].ColumnName;//"NomCliente";
             cboCliente.DropDownStyle = ComboBoxStyle.DropDownList;
 
-            cboCliente.Text = oFactura.Cliente.NomCliente;
+            cboCliente.Text = oFactura.Cliente.NomCliente +" "+ oFactura.Cliente.ApeCliente;
+
         }
 
         private void CargarComboFormasPago()

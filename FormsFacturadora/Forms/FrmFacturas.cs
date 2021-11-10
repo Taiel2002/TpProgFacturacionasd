@@ -74,18 +74,20 @@ namespace Forms.Formularios
                     pnlFecha.Hide();
                     nCase = 2;
                     cboFilterData();
-                    getRowsRight();
+                    
                     break;
                 case 3:
                     pnlFecha.Show();
                     filtroFecha();
+                    dtpFecha.Value = DateTime.Now.AddDays(-1);
+                    getRowsRight();
                     break;
             }
         }
 
         private void filtroFecha()
         {
-            dtpFecha.Value = DateTime.Now.AddDays(-1);
+           // dtpFecha.Value = DateTime.Now.AddDays(-1);
             DateTime hoy = System.DateTime.Now;
             if (dtpFecha.Value > hoy || dtpHasta.Value > hoy) //se comprueba si fecha2 no es mayor al dia de hoy
             {
@@ -96,13 +98,15 @@ namespace Forms.Formularios
             else if (dtpFecha.Value > dtpHasta.Value && cbHasta.Checked)
             { //se comprueba que la primer fecha seleccionada no sea mayor que la segunda
                 MessageBox.Show("Seleccione un rango valido");
-                dtpFecha.Value = hoy;
+               // dtpFecha.Value = hoy;
                 dtpHasta.Value = hoy;
+                dtpFecha.Value = DateTime.Now.AddDays(-1);
             }
             else
             {
                 if (!cbHasta.Checked)
                     dgvFacturas.DataSource = _facturaDao.FiltroFecha(dtpFecha.Value);
+
                 else
                     dgvFacturas.DataSource = _facturaDao.FiltroFechas(dtpFecha.Value, dtpHasta.Value);
             }

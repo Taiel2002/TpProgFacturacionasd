@@ -76,7 +76,7 @@ namespace Forms.Formularios
            // DataTable tabla = servicio.CargarClientes();
             cboCliente.DataSource = tabla;
             cboCliente.ValueMember = tabla.Columns[0].ColumnName;//"IdCliente";
-            cboCliente.DisplayMember = tabla.Columns[1].ColumnName;//"NomCliente";
+            cboCliente.DisplayMember = tabla.Columns[8].ColumnName;// IBA [1] ACA+ tabla.Columns[2].ColumnName;//"NomCliente";
             cboCliente.DropDownStyle = ComboBoxStyle.DropDownList;
 
         }

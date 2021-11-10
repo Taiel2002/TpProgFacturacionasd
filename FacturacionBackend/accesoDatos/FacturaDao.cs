@@ -13,7 +13,7 @@ namespace FacturacionBackend.accesoDatos
     {
         public int IdProximaFactura()
         {
-            SqlConnection conexion = new SqlConnection(@"Data Source=DESKTOP\SQLEXPRESS;Initial Catalog=TpProgFacturacion;Integrated Security=True");
+            SqlConnection conexion = new SqlConnection(@"Data Source=VINCENT\SQLEXPRESS;Initial Catalog=TpProgFacturacion;Integrated Security=True");
             conexion.Open();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conexion;
@@ -370,7 +370,7 @@ namespace FacturacionBackend.accesoDatos
         {
             try
             {
-                SqlConnection conexion = new SqlConnection(@"Data Source=DESKTOP\SQLEXPRESS;Initial Catalog=TpProgFacturacion;Integrated Security=True");
+                SqlConnection conexion = new SqlConnection(@"Data Source=VINCENT\SQLEXPRESS;Initial Catalog=TpProgFacturacion;Integrated Security=True");
                 DataTable table = new DataTable();
                 SqlCommand cmd = new SqlCommand();
 
@@ -379,7 +379,7 @@ namespace FacturacionBackend.accesoDatos
                 cmd.Connection = conexion;
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandText = "pa_FiltrarPorFecha";
-                cmd.Parameters.AddWithValue("@fecha", fecha.ToString());
+                cmd.Parameters.AddWithValue("@fecha", fecha);
 
                 table.Load(cmd.ExecuteReader());
                 conexion.Close();
@@ -395,7 +395,7 @@ namespace FacturacionBackend.accesoDatos
         }
         public DataTable FiltroFechas(DateTime fecha1, DateTime fecha2)
         {
-            SqlConnection conexion = new SqlConnection(@"Data Source=DESKTOP\SQLEXPRESS;Initial Catalog=TpProgFacturacion;Integrated Security=True");
+            SqlConnection conexion = new SqlConnection(@"Data Source=VINCENT\SQLEXPRESS;Initial Catalog=TpProgFacturacion;Integrated Security=True");
             DataTable table = new DataTable();
             SqlCommand cmd = new SqlCommand();
 
@@ -432,7 +432,7 @@ namespace FacturacionBackend.accesoDatos
         public bool EditarFactura(Factura oFactura)
         {
             SqlTransaction transaction = null;
-            SqlConnection conexion = new SqlConnection(@"Data Source=DESKTOP\SQLEXPRESS;Initial Catalog=TpProgFacturacion;Integrated Security=True");
+            SqlConnection conexion = new SqlConnection(@"Data Source=VINCENT\SQLEXPRESS;Initial Catalog=TpProgFacturacion;Integrated Security=True");
 
             bool flag = true;
 
@@ -465,7 +465,7 @@ namespace FacturacionBackend.accesoDatos
         public bool InsertarDetalle(Factura oFactura, DetallesFactura item)
         {
             SqlTransaction transaction = null;
-            SqlConnection conexion = new SqlConnection(@"Data Source=DESKTOP\SQLEXPRESS;Initial Catalog=TpProgFacturacion;Integrated Security=True");
+            SqlConnection conexion = new SqlConnection(@"Data Source=VINCENT\SQLEXPRESS;Initial Catalog=TpProgFacturacion;Integrated Security=True");
 
             bool flag = true;
 
@@ -498,7 +498,7 @@ namespace FacturacionBackend.accesoDatos
 
         public DataTable sqlConsParInt(string sqlQuery, string param, int intValue)
         {
-            SqlConnection conexion = new SqlConnection(@"Data Source=DESKTOP\SQLEXPRESS;Initial Catalog=TpProgFacturacion;Integrated Security=True");
+            SqlConnection conexion = new SqlConnection(@"Data Source=VINCENT\SQLEXPRESS;Initial Catalog=TpProgFacturacion;Integrated Security=True");
             DataTable table = new DataTable();
             SqlCommand cmd = new SqlCommand();
 
@@ -516,7 +516,7 @@ namespace FacturacionBackend.accesoDatos
 
         public DataTable sqlConsPar(string sqlQuery, string param, string cboFilText)
         {
-            SqlConnection conexion = new SqlConnection(@"Data Source=DESKTOP\SQLEXPRESS;Initial Catalog=TpProgFacturacion;Integrated Security=True");
+            SqlConnection conexion = new SqlConnection(@"Data Source=VINCENT\SQLEXPRESS;Initial Catalog=TpProgFacturacion;Integrated Security=True");
             DataTable table = new DataTable();
             SqlCommand cmd = new SqlCommand();
 

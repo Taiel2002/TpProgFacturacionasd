@@ -17,7 +17,7 @@ namespace FacturacionBackend.accesoDatos
         
         private HelperDao()
         {
-            stringConexion = @"Data Source=DESKTOP\SQLEXPRESS;Initial Catalog=TpProgFacturacion;Integrated Security=True";
+            stringConexion = @"Data Source=VINCENT\SQLEXPRESS;Initial Catalog=TpProgFacturacion;Integrated Security=True";
             
         }
         public static HelperDao InstanciaHelperDao()

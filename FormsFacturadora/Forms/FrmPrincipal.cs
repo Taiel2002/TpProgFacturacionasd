@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FormsFacturadora.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -44,6 +45,17 @@ namespace Forms.Formularios
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
+        }
+
+        private void desarrolladoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmDesarrolladores nuevo = new FrmDesarrolladores();
+            nuevo.Show();
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
         }
     }
 }
