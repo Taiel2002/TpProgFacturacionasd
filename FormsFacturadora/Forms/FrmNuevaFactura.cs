@@ -374,5 +374,10 @@ namespace Forms.Formularios
             printDocument1.PrintPage += Imprimir;
             printDocument1.Print();
         }
+
+        private void cboCliente_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

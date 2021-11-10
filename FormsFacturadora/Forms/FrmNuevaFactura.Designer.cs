@@ -107,8 +107,9 @@ namespace Forms.Formularios
             this.cboCliente.FormattingEnabled = true;
             this.cboCliente.Location = new System.Drawing.Point(20, 115);
             this.cboCliente.Name = "cboCliente";
-            this.cboCliente.Size = new System.Drawing.Size(481, 28);
+            this.cboCliente.Size = new System.Drawing.Size(481, 21);
             this.cboCliente.TabIndex = 1;
+            this.cboCliente.SelectedIndexChanged += new System.EventHandler(this.cboCliente_SelectedIndexChanged);
             // 
             // articulosBindingSource
             // 
@@ -118,7 +119,7 @@ namespace Forms.Formularios
             // 
             this.nudCantidadArticulo.Location = new System.Drawing.Point(363, 179);
             this.nudCantidadArticulo.Name = "nudCantidadArticulo";
-            this.nudCantidadArticulo.Size = new System.Drawing.Size(138, 26);
+            this.nudCantidadArticulo.Size = new System.Drawing.Size(138, 20);
             this.nudCantidadArticulo.TabIndex = 4;
             // 
             // cboFormaPago
@@ -126,7 +127,7 @@ namespace Forms.Formularios
             this.cboFormaPago.FormattingEnabled = true;
             this.cboFormaPago.Location = new System.Drawing.Point(537, 113);
             this.cboFormaPago.Name = "cboFormaPago";
-            this.cboFormaPago.Size = new System.Drawing.Size(201, 28);
+            this.cboFormaPago.Size = new System.Drawing.Size(201, 21);
             this.cboFormaPago.TabIndex = 2;
             // 
             // btnAgregar
@@ -146,7 +147,7 @@ namespace Forms.Formularios
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(359, 155);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(73, 20);
+            this.label7.Size = new System.Drawing.Size(49, 13);
             this.label7.TabIndex = 18;
             this.label7.Text = "Cantidad";
             // 
@@ -155,7 +156,7 @@ namespace Forms.Formularios
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(19, 155);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(62, 20);
+            this.label1.Size = new System.Drawing.Size(42, 13);
             this.label1.TabIndex = 17;
             this.label1.Text = "Articulo";
             // 
@@ -165,7 +166,7 @@ namespace Forms.Formularios
             this.cboArticulo.FormattingEnabled = true;
             this.cboArticulo.Location = new System.Drawing.Point(23, 178);
             this.cboArticulo.Name = "cboArticulo";
-            this.cboArticulo.Size = new System.Drawing.Size(327, 28);
+            this.cboArticulo.Size = new System.Drawing.Size(327, 21);
             this.cboArticulo.TabIndex = 3;
             // 
             // txtUsuario
@@ -173,7 +174,7 @@ namespace Forms.Formularios
             this.txtUsuario.Location = new System.Drawing.Point(21, 54);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.ReadOnly = true;
-            this.txtUsuario.Size = new System.Drawing.Size(201, 26);
+            this.txtUsuario.Size = new System.Drawing.Size(201, 20);
             this.txtUsuario.TabIndex = 0;
             // 
             // lblFecha
@@ -182,7 +183,7 @@ namespace Forms.Formularios
             this.lblFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblFecha.Location = new System.Drawing.Point(395, 18);
             this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Size = new System.Drawing.Size(106, 37);
+            this.lblFecha.Size = new System.Drawing.Size(72, 26);
             this.lblFecha.TabIndex = 13;
             this.lblFecha.Text = "Fecha";
             // 
@@ -191,7 +192,7 @@ namespace Forms.Formularios
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(533, 92);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(118, 20);
+            this.label4.Size = new System.Drawing.Size(79, 13);
             this.label4.TabIndex = 9;
             this.label4.Text = "Forma de Pago";
             // 
@@ -200,7 +201,7 @@ namespace Forms.Formularios
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(17, 92);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(58, 20);
+            this.label3.Size = new System.Drawing.Size(39, 13);
             this.label3.TabIndex = 7;
             this.label3.Text = "Cliente";
             // 
@@ -209,7 +210,7 @@ namespace Forms.Formularios
             this.txtFacturaNro.Location = new System.Drawing.Point(259, 54);
             this.txtFacturaNro.Name = "txtFacturaNro";
             this.txtFacturaNro.ReadOnly = true;
-            this.txtFacturaNro.Size = new System.Drawing.Size(88, 26);
+            this.txtFacturaNro.Size = new System.Drawing.Size(88, 20);
             this.txtFacturaNro.TabIndex = 0;
             // 
             // label2
@@ -217,7 +218,7 @@ namespace Forms.Formularios
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(255, 31);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(93, 20);
+            this.label2.Size = new System.Drawing.Size(63, 13);
             this.label2.TabIndex = 4;
             this.label2.Text = "Factura Nro";
             // 
@@ -226,7 +227,7 @@ namespace Forms.Formularios
             this.Usuario.AutoSize = true;
             this.Usuario.Location = new System.Drawing.Point(17, 31);
             this.Usuario.Name = "Usuario";
-            this.Usuario.Size = new System.Drawing.Size(64, 20);
+            this.Usuario.Size = new System.Drawing.Size(43, 13);
             this.Usuario.TabIndex = 2;
             this.Usuario.Text = "Usuario";
             // 
@@ -235,7 +236,7 @@ namespace Forms.Formularios
             this.txtTotal.Font = new System.Drawing.Font("Engravers MT", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtTotal.Location = new System.Drawing.Point(532, 571);
             this.txtTotal.Name = "txtTotal";
-            this.txtTotal.Size = new System.Drawing.Size(222, 38);
+            this.txtTotal.Size = new System.Drawing.Size(222, 28);
             this.txtTotal.TabIndex = 11;
             this.txtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -244,7 +245,7 @@ namespace Forms.Formularios
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(619, 548);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(44, 20);
+            this.label5.Size = new System.Drawing.Size(31, 13);
             this.label5.TabIndex = 12;
             this.label5.Text = "Total";
             // 
@@ -350,7 +351,7 @@ namespace Forms.Formularios
             // 
             // FrmNuevaFactura
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(778, 634);
             this.Controls.Add(this.btnImprimir);
